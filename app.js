@@ -13,9 +13,9 @@ fetch(API_URL_ALL)
     .then((countriesRaw) => {
         countries = countriesRaw.map((country) => {
             return {
-                capital: country.capital,
+                capital: country.capital && country.capital[0],
                 population: country.population,
-                name: country.name,
+                name: country.name.common,
                 region: country.region,
                 flagUrl: country.flags.png,
             };
