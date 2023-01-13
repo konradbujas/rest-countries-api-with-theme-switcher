@@ -11,28 +11,44 @@ const createInfoElement = (labelName, value) => {
     infoElement.appendChild(valueElement);
 
     return infoElement;
+};
+
+
+const createFlagImgElement = (country) => {
+    const imgContainerElement = document.createElement("div");
+    const imgElement = document.createElement("img");
+    imgElement.src = country.flagUrl;
+  
+    imgContainerElement.appendChild(imgElement);
+
+    return imgContainerElement;
 }
-
-
-
 
 
 const createCountryItemElement = (country) => {
     const countryElement = document.createElement("li");
-
-    const countryNameElement = document.createElement("span");
-    countryNameElement.innerText = country.name;
-
     
-    countryElement.appendChild(countryNameElement);
-
-    countryElement.appendChild(createInfoElement("Population", country.population));
-
-    countryElement.appendChild(createInfoElement("Region", country.region));
-
-    countryElement.appendChild(createInfoElement("Capital", country.capital));
+    countryElement.appendChild(createFlagImgElement(country));
 
 
+    const infoContainerElement = document.createElement("div");
+    infoContainerElement.classList.add("info-container");
+    
+
+    const countryNameElement = document.createElement("strong");
+    countryNameElement.innerText = country.name;
+    countryNameElement.classList.add("country-name");
+
+
+    infoContainerElement.appendChild(countryNameElement);
+
+    infoContainerElement.appendChild(createInfoElement("Population", country.population));
+
+    infoContainerElement.appendChild(createInfoElement("Region", country.region));
+
+    infoContainerElement.appendChild(createInfoElement("Capital", country.capital));
+
+    countryElement.appendChild(infoContainerElement);
 
     return countryElement;
 };

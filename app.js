@@ -11,6 +11,7 @@ let countries;
 fetch(API_URL_ALL)
     .then(res => res.json())
     .then((countriesRaw) => {
+        
         countries = countriesRaw.map((country) => {
             return {
                 capital: country.capital && country.capital[0],
@@ -20,5 +21,6 @@ fetch(API_URL_ALL)
                 flagUrl: country.flags.png,
             };
         });
+        console.log(countriesRaw);
     renderCountriesList(countries);
     });
