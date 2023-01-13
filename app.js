@@ -8,6 +8,7 @@ const API_URL_ALL = "https://restcountries.com/v3.1/all";
 
 let countries;
 let query = "";
+let region = "";
 
 fetch(API_URL_ALL)
     .then(res => res.json())
@@ -29,10 +30,18 @@ fetch(API_URL_ALL)
     
 document.querySelector('#query').addEventListener("input", (e) => {
     // console.log("", e.target.value);
-    const query = e.target.value.toLowerCase().trim();
-    countries = countries.filter((country) =>
+    query = e.target.value.toLowerCase().trim();
+    const filteredCountries = countries.filter((country) =>
      country.name.toLowerCase().includes(query));
     
-    console.log(countries);
-    renderCountriesList(countries);
-})
+    console.log(filteredCountries);
+    renderCountriesList(filteredCountries);
+});
+
+document.querySelector('#region').addEventListener("change", (e) => {
+    console.log(e.target.value);
+    region = e.target.value;
+
+    const filteredCountries = countries.filter((country) => country.region === region);
+    renderCountriesList(filteredCountries);
+});
