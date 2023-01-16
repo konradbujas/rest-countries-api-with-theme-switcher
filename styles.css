@@ -61,11 +61,15 @@ header button {
 }
 
 .filters {
+    display: none;
+}
+
+.filters.active {
+    
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
     flex-wrap: wrap;
-
 }
 
 
@@ -110,6 +114,8 @@ li img {
     font-size: 18px;
     margin-bottom: 12px;
 }
+
+
 
 
 .info-container {
