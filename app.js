@@ -13,7 +13,7 @@ let region = "";
 fetch(API_URL_ALL)
     .then(res => res.json())
     .then((countriesRaw) => {
-        console.log(countriesRaw);
+        // console.log(countriesRaw);
         countries = countriesRaw.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
         countries = countries.map((country) => {
             return {
@@ -28,20 +28,25 @@ fetch(API_URL_ALL)
     renderCountriesList(countries);
     });
     
-document.querySelector('#query').addEventListener("input", (e) => {
-    // console.log("", e.target.value);
-    query = e.target.value.toLowerCase().trim();
-    const filteredCountries = countries.filter((country) =>
-     country.name.toLowerCase().includes(query));
-    
-    console.log(filteredCountries);
+const filteredDataAndRenderCountriesList = () => {
+    const filteredCountries = countries.filter((country) => {
+        return (
+            country.name.toLowerCase().includes(query) &&
+            (!region || country.region === region)
+        );
+    });
     renderCountriesList(filteredCountries);
+};
+
+
+document.querySelector('#query').addEventListener("input", (e) => {
+    // console.log(e.target.value);
+    query = e.target.value.toLowerCase().trim();
+    filteredDataAndRenderCountriesList();
 });
 
 document.querySelector('#region').addEventListener("change", (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     region = e.target.value;
-
-    const filteredCountries = countries.filter((country) => country.region === region);
-    renderCountriesList(filteredCountries);
+    filteredDataAndRenderCountriesList();   
 });
