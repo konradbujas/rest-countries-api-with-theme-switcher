@@ -1,8 +1,11 @@
 import { renderCountriesList } from "./dom-utils.js";
 
-
-
 console.log('Hey there ! ;)');
+
+if (window.location.search.includes("?country=")) {
+    console.log("routing learning work perfect ! ;D");
+} else {
+
 
 const API_URL_ALL = "https://restcountries.com/v3.1/all";
 
@@ -16,9 +19,10 @@ fetch(API_URL_ALL)
         // console.log(countriesRaw);
         countries = countriesRaw.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
         countries = countries.map((country) => {
+            // if (country.name.common === "Australia") {console.log(country.region)};
             return {
                 capital: country.capital && country.capital[0],
-                population: country.population,
+                population: country.population.toLocaleString(),
                 name: country.name.common,
                 region: country.region,
                 flagUrl: country.flags.png,
@@ -50,3 +54,5 @@ document.querySelector('#region').addEventListener("change", (e) => {
     region = e.target.value;
     filteredDataAndRenderCountriesList();   
 });
+
+}

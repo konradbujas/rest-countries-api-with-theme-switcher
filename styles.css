@@ -94,6 +94,11 @@ li {
     overflow: hidden;
 }
 
+li a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
 
 li img {
     aspect-ratio: 320/196;
