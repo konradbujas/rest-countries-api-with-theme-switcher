@@ -20,6 +20,7 @@ export const renderDashboard = () => {
                     name: country.name.common,
                     region: country.region,
                     flagUrl: country.flags.png,
+                    code: country.cioc,
                 };
             });
             // console.log(countries);
