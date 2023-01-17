@@ -20,7 +20,7 @@ body {
     background: var(--color-background);
     color: var(--color-text);
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
    
 main,
@@ -71,19 +71,32 @@ header button {
 }
 
 .detail-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+  
     margin-top: 40px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+p {
+    margin-bottom: 10px;
 }
 
 .detail-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+
 }
 
 .detail-name {
     grid-column-start: 1;
     grid-column-end: 3;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .header-content {
@@ -146,8 +159,10 @@ li img {
 }
 
 img {
-    border: solid 1px #c9c8c8;
     aspect-ratio: 320/196;
+    border: solid 1px #c9c8c8;
+    max-width: 100%;
+    
     
 }
 
@@ -170,17 +185,33 @@ img {
         grid-template-columns: 1fr 1fr 1fr;
         /* gap: 50px; */
     }   
-    .detail-container,
-    .detail-content {
-        display: block;
-    }
+    
 }
 
 @media screen and (max-width: 900px) {
     ul {
         
         gap: 50px;
-    }   
+    } 
+      
+    .detail-container,
+    .detail-content {
+        display: block;
+        margin-top: 40px;
+        
+    }
+
+    .detail-name {
+        display: block;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    
+    p {
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -192,19 +223,24 @@ img {
     }   
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
+    /* body {
+        font-size: 16px;
+    }
+     */
     ul {
         grid-template-columns: 1fr 1fr;
         gap: 35px;
     }   
-
+   
     #query,
     #region {
         
         padding: 10px 20px;
-       
-        font-size: 14px;
-    
+        margin-bottom: 20px;
+        min-width: 100%;
+        /* font-size: 14px; */
+        
     }
 
     header {
@@ -215,6 +251,31 @@ img {
         font-size: 16px;
     }
 
+    .border-countries-container span{
+        display: block;
+        min-width: 90px;
+    
+       
+    }
+    .content-container {
+        padding: 10px;
+    }
+
+    .column-left,
+    .column-right {
+        margin-bottom: 40px;
+    }
+
+    .detail-name {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .detail-borders {
+        display: block;
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 450px) {

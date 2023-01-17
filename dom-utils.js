@@ -1,5 +1,5 @@
 const createInfoElement = (labelName, value) => {
-    const infoElement = document.createElement("div");
+    const infoElement = document.createElement("p");
 
     const labelElement = document.createElement("strong");
     labelElement.innerText = `${labelName}: `;
