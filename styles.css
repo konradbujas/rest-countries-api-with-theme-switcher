@@ -107,6 +107,11 @@ li a {
 li img {
     aspect-ratio: 320/196;
     width: 100%;
+    border: solid 1px #c9c8c8;
+}
+
+img {
+    border: solid 1px #c9c8c8;
 }
 
 .country-name {

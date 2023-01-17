@@ -13,7 +13,9 @@ export const renderDashboard = () => {
             // console.log(countriesRaw);
             countries = countriesRaw.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
             countries = countries.map((country) => {
-                // if (country.name.common === "Australia") {console.log(country.region)};
+                 
+                // if (country.cioc === "undefined" || (!country.cioc)) {console.log(country.name)};
+                
                 return {
                     capital: country.capital && country.capital[0],
                     population: country.population.toLocaleString(),
@@ -23,7 +25,7 @@ export const renderDashboard = () => {
                     code: country.cioc,
                 };
             });
-            // console.log(countries);
+            console.log(countries);
         renderCountriesList(countries);
         });
         
@@ -34,6 +36,7 @@ export const renderDashboard = () => {
                 (!region || country.region === region)
             );
         });
+        console.log(filteredCountries);
         renderCountriesList(filteredCountries);
     };
     
@@ -42,6 +45,7 @@ export const renderDashboard = () => {
         // console.log(e.target.value);
         query = e.target.value.toLowerCase().trim();
         filteredDataAndRenderCountriesList();
+        
     });
     
     document.querySelector('#region').addEventListener("change", (e) => {

@@ -68,8 +68,49 @@ const createListElement = (countries) => {
     return listElement;
 };
 
+const createDetailElement = (country) => {
+    // capital: country.capital && country.capital[0],
+    // population: country.population.toLocaleString(),
+    // name: country.name.common,
+    // nativeName: country.name.nativeName,
+    // region: country.region,
+    // subregion: country.subregion,
+    // flagUrl: country.flags.png,
+    // code: country.cioc,
+    // tld: country.tld[0],
+    // currencies: country.currencies,
+    // languages: country.languages,
+    const detailContainerElement = document.createElement("div");
+
+    const flagImgElement = createFlagImgElement(country);
+    const detailNameElement = document.createElement("strong");
+    detailNameElement.innerText = country.name;
+
+    detailContainerElement.appendChild(flagImgElement);
+    detailContainerElement.appendChild(detailNameElement);
+
+    detailContainerElement.appendChild(createInfoElement("Native name", country.nativeName));
+    detailContainerElement.appendChild(createInfoElement("Population", country.population));
+    detailContainerElement.appendChild(createInfoElement("Region", country.region));
+    detailContainerElement.appendChild(createInfoElement("Sub Region", country.subregion));
+    detailContainerElement.appendChild(createInfoElement("Capital", country.capital));
+    detailContainerElement.appendChild(createInfoElement("Top Level Domain", country.tld));
+    detailContainerElement.appendChild(createInfoElement("Currencies", country.currencies));
+    detailContainerElement.appendChild(createInfoElement("Languages", country.languages));
+
+    return detailContainerElement;
+    
+}
+
+
 export const renderCountriesList = (countries) => {
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
     rootElement.appendChild(createListElement(countries));    
+};
+
+export const renderCountryDetails = (country) => {
+    const rootElement = document.querySelector("#root");
+    rootElement.innerHTML = "";
+    rootElement.appendChild(createDetailElement(country));    
 };

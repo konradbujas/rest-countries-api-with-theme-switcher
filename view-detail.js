@@ -1,3 +1,5 @@
+import { renderCountryDetails } from "./dom-utils.js";
+
 export const renderDetail = () => {
     console.log(window.location.search);
     const searchParams = new URLSearchParams(window.location.search);
@@ -24,12 +26,16 @@ export const renderDetail = () => {
                 capital: country.capital && country.capital[0],
                 population: country.population.toLocaleString(),
                 name: country.name.common,
-                nativeName: country.name.nativeName,
+                nativeName: Object.values(country.name.nativeName)[0].official,
                 region: country.region,
+                subregion: country.subregion,
                 flagUrl: country.flags.png,
                 code: country.cioc,
+                tld: country.tld[0],
+                currencies: Object.values(country.currencies).map((currency) => currency.name).join(", "),
+                languages: Object.values(country.languages).join(", "),
             };
-           
+           renderCountryDetails(country);
         } );
 };
 
