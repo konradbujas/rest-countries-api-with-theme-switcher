@@ -10,11 +10,13 @@ export const renderDashboard = () => {
     fetch(API_URL_ALL)
         .then(res => res.json())
         .then((countriesRaw) => {
-            // console.log(countriesRaw);
+            console.log(countriesRaw);
             countries = countriesRaw.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
             countries = countries.map((country) => {
                  
-                // if (country.cioc === "undefined" || (!country.cioc)) {console.log(country.name)};
+                // if (country.cioc === "undefined" || (!country.cioc)) {console.log(country)};
+                // if (country.name === "undefined" || (!country.name)) {console.log(country)};
+                if (country.borders === "undefined" || (!country.borders)) {console.log(country)};
                 
                 return {
                     capital: country.capital && country.capital[0],
