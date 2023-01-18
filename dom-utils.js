@@ -149,7 +149,7 @@ export const renderCountriesList = (countries) => {
 export const renderCountryDetails = (country) => {
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
-    rootElement.appendChild(createDetailButton("Go back", "/"));    
+    rootElement.appendChild(createDetailButton("Go back", "https://konradbujas.github.io/rest-countries-api-with-theme-switcher/"));    
     rootElement.appendChild(createDetailElement(country));  
      
 };

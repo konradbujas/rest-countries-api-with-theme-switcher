@@ -44,5 +44,5 @@ export const renderDetail = () => {
 };
 
 const goBackToDashboard = () => {
-    window.location.href= "/";
+    window.location.href= "https://konradbujas.github.io/rest-countries-api-with-theme-switcher/";
 }
