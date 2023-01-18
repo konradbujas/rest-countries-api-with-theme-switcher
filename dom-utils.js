@@ -30,7 +30,7 @@ const createCountryItemElement = (country) => {
     const countryElement = document.createElement("li");
 
     const anchorElement = document.createElement("a");
-    anchorElement.href = `?country=${country.name}`;
+    anchorElement.href = `/rest-countries-api-with-theme-switcher/?country=${country.name}`;
     
     anchorElement.appendChild(createFlagImgElement(country));
 

@@ -19,7 +19,6 @@ export const renderDetail = () => {
             let country = arr[0];
             console.log(country);
             if (!country) {
-                
                 goBackToDashboard();  
             };
             
