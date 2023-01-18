@@ -134,7 +134,8 @@ const createBorderCountriesContainer = (country) => {
     borderCountriesContainerElement.appendChild(labelElement);
 
     country.borders.forEach((border) => {
-        borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
+        // borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
+        borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`));
     });
     return borderCountriesContainerElement;
 };
