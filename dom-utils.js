@@ -1,6 +1,6 @@
-export const home = "/";
+//export const home = "/";
 
-// export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
+export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
 
 import { renderBorderName } from "./border-name.js";
 
