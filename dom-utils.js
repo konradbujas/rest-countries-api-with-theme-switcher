@@ -129,13 +129,7 @@ const createDetailButton = (text, link) => {
     return anchorElement;
 }
 
-
-
-
 const createBorderCountriesContainer = (country) => {
-    // if (!country.borders || country.borders.length === 0) {
-    //     return;
-    // }
     const borderCountriesContainerElement = document.createElement("div");
     borderCountriesContainerElement.classList.add("border-countries-container");
 
@@ -146,15 +140,9 @@ const createBorderCountriesContainer = (country) => {
 
     country.borders.forEach((border) => {
         
-        
         console.log(border);
 
-        
         borderCountriesContainerElement.appendChild(createDetailButton(border, `${home}?country=${border}`));
-
-    
-
-
 
         // borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
         
@@ -165,15 +153,12 @@ const createBorderCountriesContainer = (country) => {
 
 
 export const renderCountriesList = (countries) => {
-    console.log(countries);
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
     rootElement.appendChild(createListElement(countries));    
 };
 
 export const renderCountryDetails = (country) => {
-   
-    console.log(country);
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
     rootElement.appendChild(createDetailButton("Go back", `${home}`));    

@@ -15,8 +15,8 @@ export const renderDashboard = () => {
             countries = countriesRaw.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
             countries = countries.map((country) => {
                 
-                if (country.cca3 === "MAS") {console.log(country)};
-                if (country.cca3 === "MYS") {console.log(country)};
+                // if (country.cca3 === "MAS") {console.log(country)};
+                // if (country.cca3 === "MYS") {console.log(country)};
                 // if (country.cca3 === "DEU") {console.log(country)};
                 // if (country.cca3 === "GER") {console.log(country)};
                 
