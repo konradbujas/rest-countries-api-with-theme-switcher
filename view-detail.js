@@ -1,18 +1,19 @@
 import { renderCountryDetails } from "./dom-utils.js";
+import { home } from "./dom-utils.js";
 
 export const renderDetail = () => {
-    console.log(window.location.search);
+    // console.log(window.location.search);
     const searchParams = new URLSearchParams(window.location.search);
-    const countryName = searchParams.get("country");
+    const countryData = searchParams.get("country");
     
 
-    if (!countryName) {
+    if (!countryData) {
         goBackToDashboard();
     }
-    console.log(countryName);
+    // console.log(countryData);
 
- // const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryCode}`; 
-    const API_URL_DETAIL = `https://restcountries.com/v3.1/name/${countryName}`;
+ const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryData}`; 
+    // const API_URL_DETAIL = `https://restcountries.com/v3.1/name/${countryData}`;
     fetch(API_URL_DETAIL)
         .then(res => res.json())
         .then(arr => {
@@ -21,9 +22,23 @@ export const renderDetail = () => {
             if (!country) {
                 goBackToDashboard();  
             };
-            
-            
-            country = {
+            if (!country.currencies) {
+
+                country = {
+                    capital: country.capital && country.capital[0],
+                    population: country.population.toLocaleString(),
+                    name: country.name.common,
+                    nativeName: Object.values(country.name.nativeName)[0].official,
+                    region: country.region,
+                    subregion: country.subregion,
+                    flagUrl: country.flags.png,
+                    code: country.code,
+                    tld: country.tld[0],
+                    currencies: "no data",
+                    languages: Object.values(country.languages).join(", "),
+                    borders: country.borders,
+
+            }} else { country = {
                 capital: country.capital && country.capital[0],
                 population: country.population.toLocaleString(),
                 name: country.name.common,
@@ -31,17 +46,21 @@ export const renderDetail = () => {
                 region: country.region,
                 subregion: country.subregion,
                 flagUrl: country.flags.png,
-                code: country.cioc,
+                code: country.code,
                 tld: country.tld[0],
                 currencies: Object.values(country.currencies).map((currency) => currency.name).join(", "),
-                // currenciesSymbol: Object.keys(country.currencies),
                 languages: Object.values(country.languages).join(", "),
                 borders: country.borders,
-            };
+            };};
+            
+           
            renderCountryDetails(country);
+           // console.log(country);
         } );
 };
 
+
+
 const goBackToDashboard = () => {
-    window.location.href= "https://konradbujas.github.io/rest-countries-api-with-theme-switcher/";
+    window.location.href= `${home}`;
 }

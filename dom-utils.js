@@ -1,3 +1,10 @@
+// export const home = "/";
+
+export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
+
+
+
+
 const createInfoElement = (labelName, value) => {
     const infoElement = document.createElement("p");
 
@@ -30,7 +37,7 @@ const createCountryItemElement = (country) => {
     const countryElement = document.createElement("li");
 
     const anchorElement = document.createElement("a");
-    anchorElement.href = `/rest-countries-api-with-theme-switcher/?country=${country.name}`;
+    anchorElement.href = `${home}?country=${country.code}`;
     
     anchorElement.appendChild(createFlagImgElement(country));
 
@@ -55,9 +62,10 @@ const createCountryItemElement = (country) => {
     anchorElement.appendChild(infoContainerElement);
 
     countryElement.appendChild(anchorElement);
-
+    
     return countryElement;
 };
+
 
 const createListElement = (countries) => {
     const listElement = document.createElement("ul");
@@ -121,6 +129,9 @@ const createDetailButton = (text, link) => {
     return anchorElement;
 }
 
+
+
+
 const createBorderCountriesContainer = (country) => {
     // if (!country.borders || country.borders.length === 0) {
     //     return;
@@ -134,23 +145,38 @@ const createBorderCountriesContainer = (country) => {
     borderCountriesContainerElement.appendChild(labelElement);
 
     country.borders.forEach((border) => {
+        
+        
+        console.log(border);
+
+        
+        borderCountriesContainerElement.appendChild(createDetailButton(border, `${home}?country=${border}`));
+
+    
+
+
+
         // borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
-        borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`));
+        
     });
     return borderCountriesContainerElement;
 };
 
 
+
 export const renderCountriesList = (countries) => {
+    console.log(countries);
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
     rootElement.appendChild(createListElement(countries));    
 };
 
 export const renderCountryDetails = (country) => {
+   
+    console.log(country);
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
-    rootElement.appendChild(createDetailButton("Go back", "https://konradbujas.github.io/rest-countries-api-with-theme-switcher/"));    
+    rootElement.appendChild(createDetailButton("Go back", `${home}`));    
     rootElement.appendChild(createDetailElement(country));  
      
 };
