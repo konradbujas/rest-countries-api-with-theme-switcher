@@ -1,5 +1,6 @@
 import { renderCountryDetails } from "./dom-utils.js";
 import { home } from "./dom-utils.js";
+import { renderBorderName } from "./border-name.js";
 
 export const renderDetail = () => {
     // console.log(window.location.search);
@@ -10,15 +11,15 @@ export const renderDetail = () => {
     if (!countryData) {
         goBackToDashboard();
     }
-    // console.log(countryData);
+    console.log(countryData);
 
- const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryData}`; 
+    const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryData}`; 
     // const API_URL_DETAIL = `https://restcountries.com/v3.1/name/${countryData}`;
     fetch(API_URL_DETAIL)
         .then(res => res.json())
         .then(arr => {
             let country = arr[0];
-            console.log(country);
+            //console.log(country);
             if (!country) {
                 goBackToDashboard();  
             };
@@ -32,9 +33,9 @@ export const renderDetail = () => {
                     region: country.region,
                     subregion: country.subregion,
                     flagUrl: country.flags.png,
-                    code: country.code,
+                    code: country.cca3,
                     tld: country.tld[0],
-                    currencies: "no data",
+                    currencies: "-",
                     languages: Object.values(country.languages).join(", "),
                     borders: country.borders,
 
@@ -46,7 +47,7 @@ export const renderDetail = () => {
                 region: country.region,
                 subregion: country.subregion,
                 flagUrl: country.flags.png,
-                code: country.code,
+                code: country.cca3,
                 tld: country.tld[0],
                 currencies: Object.values(country.currencies).map((currency) => currency.name).join(", "),
                 languages: Object.values(country.languages).join(", "),
@@ -55,6 +56,7 @@ export const renderDetail = () => {
             
            
            renderCountryDetails(country);
+           // renderBorderName();
            // console.log(country);
         } );
 };

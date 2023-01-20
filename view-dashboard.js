@@ -1,5 +1,6 @@
 import { renderCountriesList } from "./dom-utils.js";
 
+
 export const renderDashboard = () => {
     const API_URL_ALL = "https://restcountries.com/v3.1/all";
 
@@ -36,7 +37,7 @@ export const renderDashboard = () => {
                     code: country.cca3,
                 };
             });
-            console.log(countries);
+            // console.log(countries);
         renderCountriesList(countries);
     
         });

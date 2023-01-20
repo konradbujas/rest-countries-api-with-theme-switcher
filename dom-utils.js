@@ -1,6 +1,8 @@
-// export const home = "/";
+export const home = "/";
 
-export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
+// export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
+
+import { renderBorderName } from "./border-name.js";
 
 
 
@@ -129,7 +131,7 @@ const createDetailButton = (text, link) => {
     return anchorElement;
 }
 
-const createBorderCountriesContainer = (country) => {
+export const createBorderCountriesContainer = (country) => {
     const borderCountriesContainerElement = document.createElement("div");
     borderCountriesContainerElement.classList.add("border-countries-container");
 
@@ -137,11 +139,13 @@ const createBorderCountriesContainer = (country) => {
     labelElement.innerText = "Border Countries: ";
 
     borderCountriesContainerElement.appendChild(labelElement);
-
+    // console.log(country.borders);
     country.borders.forEach((border) => {
         
         console.log(border);
-
+        renderBorderName(border);
+        // console.log(country.name);
+    
         borderCountriesContainerElement.appendChild(createDetailButton(border, `${home}?country=${border}`));
 
         // borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
@@ -153,6 +157,7 @@ const createBorderCountriesContainer = (country) => {
 
 
 export const renderCountriesList = (countries) => {
+    console.log(countries);
     const rootElement = document.querySelector("#root");
     rootElement.innerHTML = "";
     rootElement.appendChild(createListElement(countries));    
