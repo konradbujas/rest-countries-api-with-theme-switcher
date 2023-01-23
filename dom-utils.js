@@ -1,9 +1,13 @@
-//export const home = "/";
+export const home = "/";
 
-export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
+// export const home = `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/`;
 
 import { renderBorderName } from "./border-name.js";
+// import { renderBorderLabel } from "./border-name.js";
+// import { countryBorder } from "./border-name.js";
 
+// import { border } from "./border-name.js";
+ 
 
 
 
@@ -122,7 +126,7 @@ const createDetailElement = (country) => {
     return detailContainerElement;
 }
 
-const createDetailButton = (text, link) => {
+export const createDetailButton = (text, link) => {
     const anchorElement = document.createElement("a");
     anchorElement.innerText = text;
     anchorElement.classList.add("detail-button-link");
@@ -130,6 +134,18 @@ const createDetailButton = (text, link) => {
 
     return anchorElement;
 }
+
+export const createBorderButton = (text, link) => {
+    const anchorElement = document.createElement("a");
+    anchorElement.innerText = text;
+    anchorElement.classList.add("border-button-link");
+    anchorElement.href = link;
+
+    return anchorElement;
+}
+
+
+ 
 
 export const createBorderCountriesContainer = (country) => {
     const borderCountriesContainerElement = document.createElement("div");
@@ -143,10 +159,29 @@ export const createBorderCountriesContainer = (country) => {
     country.borders.forEach((border) => {
         
         console.log(border);
-        renderBorderName(border);
+        
+       renderBorderName(border);
+        // renderBorderName("DEU"); -> wysyłamy zmienną do border-name.js do funkcji renderBorderName
+
+
+
+
+
+        //    const renderBorderLabel = () => {
+        //     console.log(border.name);
+        //     const labelBorder = document.querySelector(".border-button-link");
+        //     labelBorder.innerText = "";
+        //     labelBorder.innerText = "border.name";
+        //     };
+        // console.log(renderBorderName);
+
         // console.log(country.name);
-    
-        borderCountriesContainerElement.appendChild(createDetailButton(border, `${home}?country=${border}`));
+
+        // renderLabelBorder() = () => {
+        //     console.log(border.name);
+        // }
+        
+        borderCountriesContainerElement.appendChild(createBorderButton(border, `${home}?country=${border}`));
 
         // borderCountriesContainerElement.appendChild(createDetailButton(border, `https://konradbujas.github.io/rest-countries-api-with-theme-switcher/?country=${border}`));
         

@@ -56,6 +56,7 @@ header button {
     padding: 0 32px;
 }
 
+.border-button-link,
 .detail-button-link {
     display: inline-block;
     background: transparent;
