@@ -48,7 +48,7 @@ export const renderBorderName = (border) => {
             const labelBorder = document.querySelector(".border-button-link");
             console.log(labelBorder);
             labelBorder.innerText = "";
-            labelBorder.innerText = "border.name";
+            labelBorder.innerText = "test";
             
 
 
