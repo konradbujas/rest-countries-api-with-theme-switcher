@@ -1,9 +1,3 @@
-import {createBorderCountriesContainer} from "./dom-utils.js";
-import {createBorderButton} from "./dom-utils.js";
-import { home } from "./dom-utils.js";
-// import { renderBorderLabel } from "./dom-utils.js";
-
-
 
 export const renderBorderName = (border) => {
     //console.log(borderName);
@@ -37,42 +31,19 @@ export const renderBorderName = (border) => {
                 // currencies: Object.values(country.currencies).map((currency) => currency.name).join(", "),
                 // languages: Object.values(country.languages).join(", "),
                 // borders: country.borders,
-                
             };
             
            
            
           
            console.log(border.name);
-        
-            const labelBorder = document.querySelector(".border-button-link");
-            console.log(labelBorder);
-            labelBorder.innerText = "";
-            labelBorder.innerText = "border.name";
-            
-
-
-        //    //debugger;
-        //    const labelBorder = document.querySelector(".border-button-link");
-           
-        //     console.log(labelBorder);
-        //    labelBorder.innerText = "";
-        //    labelBorder.innerText = `${border.name}`;
-        //    labelBorder.innerText = "test";
-           
-           // createBorderCountriesContainer();
-           // const countryBorder = border.name;
-           // console.log(countryBorder);
-        
-          // return countryBorder;
-           
+           return border.name;
            
         //    country.name.forEach((borderLabel) => {
         //     console.log(borderLabel);
         //    });
-            return border.name;
+           
            // console.log(border);
   }); 
     };
 
-    
